@@ -3,22 +3,49 @@ import CoreML
 import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPicture))
+    }
+    
+    @objc func importPicture() {
+        let imagePicker = UIImagePickerController()
+        
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary // or .camera
-        imagePicker.allowsEditing = false
+        imagePicker.allowsEditing = true
+        
+        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose Source", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePicker.sourceType = .camera
+                self.present(imagePicker, animated: true, completion: nil)
+            } else {
+                print("Camera not available")
+            }
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
+            imagePicker.sourceType = .photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(actionSheet, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let userPickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            dismiss(animated: true)
             
             imageView.image = userPickedImage
             
@@ -28,8 +55,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             detect(image: ciimage)
         }
-        
-        imagePicker.dismiss(animated: true, completion: nil)
         
     }
     
@@ -59,11 +84,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
     }
-    
-    @IBAction func cameraIconTapped(_ sender: Any) {
-        
-        present(imagePicker, animated: true, completion: nil)
-    }
+
     
     
 }

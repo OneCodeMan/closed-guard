@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxp-Op-4PG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxp-Op-4PG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                         </subviews>
@@ -30,13 +30,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YKX-kT-h5q">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="qCS-In-vYT">
-                            <connections>
-                                <action selector="cameraIconTapped:" destination="BYZ-38-t0r" id="hUp-x8-NEw"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="YKX-kT-h5q"/>
                     <connections>
                         <outlet property="imageView" destination="hxp-Op-4PG" id="iUy-eb-gIn"/>
                     </connections>
