@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Na-Lt-lqp">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Na-Lt-lqp">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,22 +15,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxp-Op-4PG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clouds" translatesAutoresizingMaskIntoConstraints="NO" id="hxp-Op-4PG">
+                                <rect key="frame" x="0.0" y="44" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="K3L-wP-1It"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clouds" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fT-dR-HA7">
+                                <rect key="frame" x="5" y="254" width="365" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="otq-at-T71"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sut-Gy-BiO">
+                                <rect key="frame" x="5" y="294" width="365" height="373"/>
+                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" xcode11CocoaTouchSystemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="sut-Gy-BiO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="DRA-pE-EmV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3fT-dR-HA7" secondAttribute="trailing" constant="5" id="EdC-NE-bpy"/>
                             <constraint firstItem="hxp-Op-4PG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IK6-wb-key"/>
-                            <constraint firstItem="hxp-Op-4PG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="OHR-sj-5xG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sut-Gy-BiO" secondAttribute="trailing" constant="5" id="ISV-aK-nJn"/>
+                            <constraint firstItem="3fT-dR-HA7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NJh-9T-tOE"/>
+                            <constraint firstItem="3fT-dR-HA7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="Nve-E7-fcU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sut-Gy-BiO" secondAttribute="bottom" id="RQR-ri-p9t"/>
                             <constraint firstItem="hxp-Op-4PG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SL5-nM-zbD"/>
+                            <constraint firstItem="sut-Gy-BiO" firstAttribute="top" secondItem="3fT-dR-HA7" secondAttribute="bottom" constant="10" id="WA2-rG-7sS"/>
                             <constraint firstItem="hxp-Op-4PG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="icu-QN-4fh"/>
+                            <constraint firstItem="3fT-dR-HA7" firstAttribute="top" secondItem="hxp-Op-4PG" secondAttribute="bottom" constant="10" id="oG9-92-BJS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="YKX-kT-h5q"/>
                     <connections>
+                        <outlet property="firstResultLabel" destination="3fT-dR-HA7" id="5sJ-w2-ocO"/>
                         <outlet property="imageView" destination="hxp-Op-4PG" id="iUy-eb-gIn"/>
+                        <outlet property="otherResultsTextView" destination="sut-Gy-BiO" id="zON-6C-rJM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -45,7 +72,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Na-Lt-lqp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3V4-ew-Cna">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -58,4 +85,7 @@
             <point key="canvasLocation" x="-303" y="125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="clouds" width="3024" height="4032"/>
+    </resources>
 </document>

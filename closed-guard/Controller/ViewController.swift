@@ -5,9 +5,18 @@ import Vision
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var firstResultLabel: UILabel!
+    @IBOutlet weak var otherResultsTextView: UITextView!
+
+    var otherResultsInitialText = "It could also be: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Picture Detector"
+        otherResultsTextView.isEditable = false
+        otherResultsTextView.isScrollEnabled = true
+        otherResultsTextView.automaticallyAdjustsScrollIndicatorInsets = false
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPicture))
     }
@@ -71,8 +80,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             
             if let firstResult = results.first {
-                self.navigationItem.title = firstResult.identifier
+                self.firstResultLabel.text = firstResult.identifier
             }
+            
+            var otherResultsText = ""
+            for result in results.dropFirst() {
+                otherResultsText += "\n\(result.identifier) (\(result.confidence)), "
+            }
+            self.otherResultsTextView.text = self.otherResultsInitialText + otherResultsText
         }
         
         let handler = VNImageRequestHandler(ciImage: image)
